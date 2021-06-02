@@ -54,9 +54,6 @@ class UBiRW(DM_method):
         W1 = np.zeros(B.shape)
         W2 = np.zeros(B.shape)
 
-        # W_sm_vi = 0.04 * W_sm_vi + math.pow(0.04, 2)*(W_sm_vi @ vi_sim  + sm_sim @ W_sm_vi) 
-        # rrr = 0.04 * W_sm_vi + math.pow(0.04, 2)*(W_sm_vi @ vi_sim  + sm_sim @ W_sm_vi) 
-
         while(cn <= M):
             W_sm_vi = 1/W_sm_vi.sum() * W_sm_vi
             if(n1 <= l1):
@@ -72,7 +69,5 @@ class UBiRW(DM_method):
             W_sm_vi = (W1 + W2)/2
 
             cn += 1
-        # return beta * W_sm_vi + math.pow(beta, 2)*(W_sm_vi @ vi_sim  + sm_sim @ W_sm_vi)
         return W_sm_vi
-        return W_sm_vi*(vvalpha) + (1-vvalpha)*rrr
 
